@@ -1,8 +1,12 @@
 # Strayos: Architecting Sites
 
-### The Current Architecture:![](/assets/Current Architecture.png)
+### Functional Specification
 
-### The Glorious World That could Be
+###### David Ayeke
+
+Last Update: December 6, 2017
+
+2017 Strayos, All Rights Reserved.
 
 
 
