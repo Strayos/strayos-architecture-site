@@ -1,0 +1,283 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Screen By Screen Specification · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter1.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.1.1" data-path="understanding-the-architecture.html">
+            
+                <a href="understanding-the-architecture.html">
+            
+                    
+                    Screen By Screen Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    Technical Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Screen By Screen Specification</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="view-by-view-specification">View by View Specification</h1>
+<p>The Site architecture requires the modification of a few views. Most views will remain largely the same, and the look and feel is to be designed in the future by a graphic designer. This document is more concerned with the functionality and the interaction design, not the exact look and layout.</p>
+<p>All screens are created in HTML. They will be converted to nested angular components by programmers.</p>
+<p>Each screen is known by a canonical name which will always appear, in this document, in italics, so you know we&apos;re referring to a screen by name, for example,<em> Site List View.</em></p>
+<h3 id="site-list-view">Site List View<img src="assets/Site List View%281%29.png" alt=""></h3>
+<p>Entry point after login. The user should be able to see all sites he has access to. Not show is a background map that shows markers representing the location of every site. When a site is clicked, the map should zoom in on the location and show the extents of the site. Clicking on a flight should show meta data for that flight or go straight to the flights view. There should also be fairly prominent buttons for uploading a Flight/creating a Site</p>
+<h6 id="technical-note">Technical Note:</h6>
+<p>Showing the extents of a site can be done after the initial flight. Using the exif information for every image in the flight we should be able to generate a polygon dictating the area the done flew over using a simple convex hull algorithm. This data can be saved as an annotation for the flight, and be pulled into the map.</p>
+<h3 id="flight-upload-view-choose-site">Flight Upload View: Choose Site</h3>
+<p><img src="assets/Flight Creation View%282%29.png" alt=""></p>
+<p>First view of flight upload. Say Bern the Berm inspector wants to upload several flights. The first flight is for a completely new site he inspected today, the other is for the Chico site. He creates a new site, and sets the location by uploading one of the images he has on hand. He confirms its the right general location though the minimap, but adjusts the center a bit by panning. He then continues the rest of the wizard. Afterwards he uploads a flight again; this time he chooses to map this flight to his Chico site.</p>
+<h5 id="technical-note">Technical Note:</h5>
+<p>Location informaiton can be uploaded manually through Lat/Long, or by inspecting the exif data of one of the images. We will need to decide whether the user should be able to set the extent of the site as well or only the center point.</p>
+<h3 id="flight-upload-view-image-uploads">Flight Upload View: Image Uploads</h3>
+<p>After choosing a site, the user should be able to upload images, videos, and a gcp file. The workflow is to be speced out by the designer, but preferably has some way to represent the progress of asset uploads and the gcp workflow. </p>
+<h3 id="flight-creation-view-share-settings">Flight Creation View: Share Settings</h3>
+<p> When Phil goes to upload images of his flight, he should be able to choose what features of the flight. He should have been able to inherit the share settings of the site, and be able to choose further people to share certain features with. He can also choose the level of access each person has. Be it read, write, execture or some combination of the three. For convinence, all permissions are shown (including those inherited from the site) and can be overwritten. </p>
+<h3 id="flight-creation-view-finish">Flight Creation View: Finish</h3>
+<p>Once the user is done setting the flight information, he can submit the flight for processing in this view.</p>
+<h3 id="timeline-visualization-view">Timeline Visualization View</h3>
+<p><img src="assets/Timeline Visualization View.png" alt=""></p>
+<p>Selecting any given site should show a view similar to what we have for dataprojects. The Orthophoto is shown with a colored outline for the current flight. What is new is the timeline visualization. The time line has a brush which selects the a section of available times. In this case the user has zoomed in to the range Dec 1 to Dec 3. From there the user can also click additional flights. Although only the currently selected flight will be shown in 3D (for now?) the orthophotos of the other flights is available in the 2D view. Each flight has a colored outline to show their extents. Measurements (like the bench) and Annotations (like shotplan) also have a colored outline. Selecting two annotations of the same type results in an overlay that shows the difference between them both. </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter1.html" class="navigation navigation-next " aria-label="Next page: Technical Design">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Screen By Screen Specification","level":"1.1.1","depth":2,"next":{"title":"Technical Design","level":"1.2","depth":1,"path":"chapter1.md","ref":"chapter1.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"Screen By Screen Specification","level":"1.1.1","depth":2,"path":"understanding-the-architecture.md","ref":"understanding-the-architecture.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"understanding-the-architecture.md","mtime":"2017-12-08T18:50:30.292Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T18:55:04.502Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

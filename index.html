@@ -1,0 +1,284 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="understanding-the-architecture.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="understanding-the-architecture.html">
+            
+                <a href="understanding-the-architecture.html">
+            
+                    
+                    Screen By Screen Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    Technical Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="strayos-architecting-sites">Strayos: Architecting Sites</h1>
+<h3 id="functional-specification">Functional Specification</h3>
+<h6 id="david-ayeke">David Ayeke</h6>
+<p>Last Update: December 6, 2017</p>
+<p>2017 Strayos, All Rights Reserved.</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p>Sites are a new way of managing and tracking user data.</p>
+<p>This spec is not, by any stetch of the imagination, complete. All of the wording will need to be revisted several times before it is finalized. The graphics and layout of the screens is shown here merely to illustrate the underlying functionality. The actual look and feel will be developed over time with the input of graphics and iterative user feedback. </p>
+<p>The spec does not discuss the algorithms or implementation details, which will be discussed elsewhere. It simply discusses what the user sees when they interact with Sites and how the backend is expected to respond.</p>
+<h2 id="scenarios">Scenarios</h2>
+<p>In designing products, it helps to imagine a few real life stories of how actual (stereotypical) people would use them. We&apos;ll look at three scenarios.</p>
+<h4 id="scenario-1-buck-lee-the-blaster">Scenario 1: Buck Lee the Blaster.</h4>
+<p>Buck has been hired by Old Castle Only&#xA9; to design 10 blast their quarry. The customer is adamant that he is able to access all data he has, so he can share the information with his drillers. Buck decides to use Strayos. He creates an account for the Customer, and sends the login to the customer. He then flies over the bench, and uploads the data. Since Strayos doesn&apos;t recognize the location of the Flight, it prompts him to create a new Sites to collect subsequent ones. After creating the Site, he shares the Site with his personal Strayos account, and does the rest of his blast design using his own account. </p>
+<h4 id="scenario-2-richard-the-driller">Scenario 2: Richard the Driller.</h4>
+<p>Richard has been hired to drill and blast a bench on Monday. This is his fifth time drilling at the Site, and he has been given access to the Site&apos;s drill planning and inventory management. He logs onto his personal Strayos account, and sees the newest flight. He immediately goes to blast design, and runs burden analysis to ensure the blast designer didn&apos;t make any obvious mistakes. After confirming that everything looks good, he exports the shotplan in IREDES format for his smart drill. On Monday after drilling, he uploads an IREDES file his drill game him that confirms the location of the holes. He knows that Strayos can use that for fragmentaiton analysis after he flies the muck pile. Knowing the customer will chew him out if he forgets, he updates the magazine contents in the inventory management suite. </p>
+<h4 id="scenario-3-detective-dave">Scenario 3: Detective Dave</h4>
+<p>A parking lot was just decimated by a car bomb. ATF officer Dave is going around local mines to check if any explosives could have been stolen. He was given a link to access the inventory of Old Castle Only&#xA9; though the Strayos platform. He goes over all of their blast and checks how many explosives were used in each. He double checks that the seismographs and the current magazine contents match up. Failing to detect a discrepency he stops his investigatoin. </p>
+<h4 id="scenario-4-chris-the-client">Scenario 4: Chris the client</h4>
+<p>Chris is loving Strayos. Everytime his superior, Steve, wants to know how much rock was blasted this week, he can generate a pdf showing how much volume has been blasted for every single blast! He can even show a map of how the bench has changed ever since Buck started designing his blast. He was even able to deal with the ATF without worry! He&apos;s going to ask Steve for an enterprise Strayos account so that he can have the same data analysis for his quarry in Chico. </p>
+<h3 id="goals">Goals</h3>
+<ul>
+<li><p>Separate the people who can view (read), modify (write), and run (execute) the various suites in are platform.</p>
+</li>
+<li><p>Associate all data with a Flight (time), and all flights with a Site (location)</p>
+</li>
+<li><p>Allow the Customer to grant read, write, or execute access to any data associated with his Site. </p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="understanding-the-architecture.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Screen By Screen Specification">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Screen By Screen Specification","level":"1.1.1","depth":2,"path":"understanding-the-architecture.md","ref":"understanding-the-architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-12-08T18:50:30.288Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-12-08T18:55:04.502Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
